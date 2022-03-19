@@ -14,15 +14,14 @@ namespace _06_ByteBank
             conta.Depositar(-10);
 
             Cliente cliente = new Cliente();
-            cliente.cpf = "434.564.879-20";
-            cliente.nome = "Gulherme";
-            cliente.profissao = "Desenvolvedor";
+            cliente.CPF = "434.564.879-20";
+            cliente.Nome = "Gulherme";
+            cliente.Profissao = "Desenvolvedor";
 
             conta.Saldo = -10;
             conta.Titular = cliente;
-
-            
-            Console.WriteLine(conta.Titular.nome);
+                        
+            Console.WriteLine(conta.Titular.Nome);
             Console.WriteLine(conta.Saldo);
             
             Console.ReadLine();
