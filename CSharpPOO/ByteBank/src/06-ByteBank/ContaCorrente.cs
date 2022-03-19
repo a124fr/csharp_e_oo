@@ -4,19 +4,51 @@ namespace _06_ByteBank
 
     public class ContaCorrente
     {
-        public Cliente titular;
+        private Cliente _titular;
+
+        public Cliente Titular
+        {
+            get
+            {
+                return _titular;
+            }
+
+            set
+            {
+                _titular = value;
+            }
+        }
+
         public int agencia;
         public int numero;
-        private double saldo = 100.0;
+        private double _saldo = 100.0;
+
+        public double Saldo
+        {
+            get
+            {
+                return _saldo;
+            }   
+            
+            set
+            {
+                if (value < 0)
+                {
+                    return;
+                }
+
+                _saldo = value;
+            }
+        }
 
         public bool Sacar(double valor)
         {
-            if (saldo < valor || saldo <= 0)
+            if (_saldo < valor || _saldo <= 0)
             {
                 return false;
             }
 
-            saldo -= valor;
+            _saldo -= valor;
             return true;
         }
 
@@ -24,7 +56,7 @@ namespace _06_ByteBank
         {
             if (valor > 0)
             {
-                saldo += valor;
+                _saldo += valor;
             }
         }
 
@@ -37,21 +69,6 @@ namespace _06_ByteBank
             }
 
             return false;
-        }
-
-        public double GetSaldo()
-        {
-            return saldo;
-        }
-
-        public void SetSaldo(double saldo)
-        {
-            if (saldo < 0)
-            {
-                return;
-            }
-
-            this.saldo = saldo;
         }
     }
 }
