@@ -47,10 +47,14 @@ namespace _07_ByteBank
             }
         }
 
+        public static int TotalDeContasCriadas { get; private set; }
+
         public ContaCorrente(int agencia, int numero)
         {
             Agencia = agencia;
             Numero = numero;
+
+            TotalDeContasCriadas++;
         }
 
         public bool Sacar(double valor)
