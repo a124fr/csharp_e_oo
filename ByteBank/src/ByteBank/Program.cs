@@ -13,14 +13,20 @@ namespace ByteBank
         {
             GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
 
-            Funcionario carlos = new Funcionario("546.879.157-20");
-            carlos.Nome = "Carlos";            
-            carlos.Salario = 2000;
+            Funcionario carlos = new Funcionario(2000.0,"546.879.157-20");
+            carlos.Nome = "Carlos";                        
+            carlos.AumentarSalario();
+            Console.WriteLine("Novo Salário de Carlos: " + carlos.Salario);
 
-            Diretor roberta = new Diretor("454.658.148-30");
-            roberta.Nome = "Roberta";            
-            roberta.Salario = 5000;
-                        
+            Diretor roberta = new Diretor(5000.0, "454.658.148-30");
+            roberta.Nome = "Roberta";                        
+            roberta.AumentarSalario();
+
+            //roberta.Salario = 2000.0; Não é permitido pois é protegido, publico para classe e seus filhos, mas para fora, outras clsase é privado.
+            Console.WriteLine("Novo Salário de Roberta: " + roberta.Salario);
+
+
+
             gerenciador.Registrar(carlos);
             gerenciador.Registrar(roberta);
 
