@@ -8,8 +8,6 @@ namespace ByteBank.Funcionarios
 {
     public class GerenteDeConta : Funcionario
     {
-        public string Senha { get; set; }
-
         // 4000,00
         public GerenteDeConta(string cpf) 
             : base(4000.0, cpf)
