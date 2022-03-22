@@ -20,10 +20,16 @@ namespace ByteBank.Funcionarios
             TotalDeFuncionarios++;
         }
 
-        public virtual void AumentarSalario()
-        {
-            Salario *= 1.1;
-        }
+        //Um construtor pode chamar outro construtor da própria classe com o uso da palavra reservada "this"
+        //public Funcionario(string cpf)
+        //    : this(0.0, cpf)
+        //{}
+
+        //public virtual void AumentarSalario()
+        //{
+        //    Salario *= 1.1;
+        //}
+        public abstract void AumentarSalario();
 
         //public virtual double GetBonificacao()
         //{
