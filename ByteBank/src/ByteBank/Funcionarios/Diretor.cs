@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Diretor : Autenticavel
+    public class Diretor : Funcionario, IAutenticavel
     {
+        public string Senha { get; set; }
+
         public Diretor(string cpf) 
             : base(5000.0, cpf)
         {}
