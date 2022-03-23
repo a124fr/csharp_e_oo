@@ -20,9 +20,9 @@ namespace ByteBank
             catch (NullReferenceException ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
-
-
+            
             Console.ReadLine();
         }
 
@@ -31,7 +31,7 @@ namespace ByteBank
         private static void Metodo()
         {
             TestaDivisao(0);
-            TestaDivisao(2);
+            //TestaDivisao(2);
         }
 
         private static void TestaDivisao(int divisor)
@@ -44,6 +44,7 @@ namespace ByteBank
             catch(DivideByZeroException ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
