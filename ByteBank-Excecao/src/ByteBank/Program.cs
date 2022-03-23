@@ -13,7 +13,12 @@ namespace ByteBank
             try
             {
                 ContaCorrente conta = new ContaCorrente(83930, 788545);
-                ContaCorrente conta2 = new ContaCorrente(0, 0);
+                ContaCorrente conta2 = new ContaCorrente(48484, 0);
+            }
+            catch(ArgumentException e)
+            {
+                Console.WriteLine("Ocorreu uma exceção do tipo ArgumentException"); 
+                Console.WriteLine(e);
             }
             catch (Exception e)
             {
