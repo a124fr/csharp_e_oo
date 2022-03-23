@@ -60,7 +60,7 @@ namespace ByteBank
         {
             if (valor <= 0)
             {
-                throw new ArgumentException("O valor inválido para o saque.", nameof(valor));
+                throw new ArgumentException("O valor inválido para operação.", nameof(valor));
             }
 
             if (_saldo < valor)
