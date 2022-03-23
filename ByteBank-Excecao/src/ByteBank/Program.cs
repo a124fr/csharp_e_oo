@@ -59,7 +59,8 @@ namespace ByteBank
             catch (DivideByZeroException)
             {                
                 Console.WriteLine("Exceção com numero igual a " + numero + " e divosor igual a " + divisor);
-                throw; // Passa a exceção para frente.
+                // A instrução throw;, dentro de um bloco catch, relança uma exceção.
+                throw; // Passa a exceção para frente. 
             }
         }
     }
