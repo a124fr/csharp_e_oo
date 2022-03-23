@@ -17,7 +17,7 @@ namespace ByteBank
             }
             catch(ArgumentException e)
             {
-                Console.WriteLine("Ocorreu uma exceção do tipo ArgumentException"); 
+                Console.WriteLine("Argumento com problema: " + e.ParamName + ". ");                 
                 Console.WriteLine(e);
             }
             catch (Exception e)

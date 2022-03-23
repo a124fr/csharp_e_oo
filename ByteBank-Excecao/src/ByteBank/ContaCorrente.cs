@@ -36,20 +36,20 @@ namespace ByteBank
 
         public static double TaxaOperacao { get; private set; }
 
-        public ContaCorrente(int agencia, int numero)
+        public ContaCorrente(int numeroAgencia, int numeroConta)
         {
-            if (agencia <= 0)
+            if (numeroAgencia <= 0)
             {
-                throw new ArgumentException("O argumento agência deve ser maior do que 0");
+                throw new ArgumentException("O argumento numnero da agência deve ser maior do que 0", nameof(numeroAgencia));
             }
 
-            if (numero <= 0)
+            if (numeroConta <= 0)
             {
-                throw new ArgumentException("O argumento Número deve ser maior do que 0");
+                throw new ArgumentException("O argumento número da conta deve ser maior do que 0", nameof(numeroConta));
             }
 
-            Agencia = agencia;
-            Numero = numero;
+            Agencia = numeroAgencia;
+            Numero = numeroConta;
 
             TaxaOperacao = 30 / TaxaOperacao;
 
