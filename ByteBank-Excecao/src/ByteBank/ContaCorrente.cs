@@ -58,14 +58,14 @@ namespace ByteBank
 
         public void Sacar(double valor)
         {
-            if (_saldo <= 0)
+            if (valor <= 0)
             {
-                throw new ArgumentException("O paremetro valor deve ser positivo", nameof(valor));
+                throw new ArgumentException("O valor inválido para o saque.", nameof(valor));
             }
 
             if (_saldo < valor)
             {
-                throw new SaldoInsuficienteException("Saldo insuficiente para o saque no valor de R$" + valor);
+                throw new SaldoInsuficienteException(Saldo, valor);
             }
 
             _saldo -= valor;
@@ -73,10 +73,12 @@ namespace ByteBank
 
         public void Depositar(double valor)
         {
-            if (valor > 0)
+            if (valor <= 0)
             {
-                _saldo += valor;
+                throw new ArgumentException("O valor inválido para o deposito.", nameof(valor));
             }
+
+            _saldo += valor;
         }
 
         public void Trasnferir(double valor, ContaCorrente contaDestino)

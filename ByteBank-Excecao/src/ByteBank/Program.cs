@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByteBank
 {
@@ -15,13 +11,13 @@ namespace ByteBank
                 ContaCorrente conta = new ContaCorrente(83930, 788545);
                 conta.Depositar(50);
                 Console.WriteLine(conta.Saldo);
-                conta.Sacar(500);
+                conta.Sacar(-500);
                 Console.WriteLine(conta.Saldo);
             }
             catch(SaldoInsuficienteException e)
             {
                 Console.WriteLine("Exceção do tipo SaldoInsuficienteException");
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
             }
             catch(ArgumentException e)
             {
