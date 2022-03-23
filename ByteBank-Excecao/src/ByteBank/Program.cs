@@ -21,18 +21,31 @@ namespace ByteBank
         //Metodo -> TestaDivisao -> Dividir
         private static void Metodo()
         {
+            TestaDivisao(0);
             TestaDivisao(2);
         }
 
         private static void TestaDivisao(int divisor)
         {
-            int resultado = Dividir(10, divisor);
-
-            Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado)
+            try
+            {
+                int resultado = Dividir(10, divisor);
+                Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(NullReferenceException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static int Dividir(int numero, int divisor)
         {
+            ContaCorrente contaCorrente = null;
+            Console.WriteLine(contaCorrente.Saldo);
             return numero / divisor;
         }
     }
