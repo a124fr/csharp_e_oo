@@ -1,13 +1,12 @@
 ﻿
+using System;
+
 namespace ByteBank
 {
 
     public class ContaCorrente
     {
         public Cliente Titular { get; set; }
-
-
-        private int _agencia;
 
         public int Agencia { get; }
                 
@@ -38,7 +37,13 @@ namespace ByteBank
         public static double TaxaOperacao { get; private set; }
 
         public ContaCorrente(int agencia, int numero)
-        {   
+        {
+            if (agencia <= 0 || numero <= 0)
+            {
+                // lança uma exceção
+                throw new Exception("A agência e o Número devem ser maiores do que 0");
+            }
+
             Agencia = agencia;
             Numero = numero;
 

@@ -10,28 +10,15 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            //ContaCorrente conta = new ContaCorrente(7480, 874150);
-            //Console.WriteLine("Taxa Operação: " + ContaCorrente.TaxaOperacao);
-
             try
             {
-                Metodo();
+                ContaCorrente conta = new ContaCorrente(83930, 788545);
+                ContaCorrente conta2 = new ContaCorrente(0, 0);
             }
-            catch (NullReferenceException e)
+             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
+                Console.WriteLine(e);
+            }                       
 
             Console.ReadLine();
         }
