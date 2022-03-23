@@ -41,7 +41,7 @@ namespace ByteBank
             if (agencia <= 0 || numero <= 0)
             {
                 // lança uma exceção
-                throw new Exception("A agência e o Número devem ser maiores do que 0");
+                throw new ArgumentException("A agência e o Número devem ser maiores do que 0");
             }
 
             Agencia = agencia;
