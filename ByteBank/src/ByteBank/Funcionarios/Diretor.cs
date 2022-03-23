@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Diretor : Funcionario, IAutenticavel
+    public class Diretor : FuncionarioAutenticavel
     {
-        public string Senha { get; set; }
-
         public Diretor(string cpf) 
             : base(5000.0, cpf)
         {}
@@ -23,11 +21,6 @@ namespace ByteBank.Funcionarios
         public override double GetBonificacao()
         {
             return Salario * 0.5;
-        }
-
-        public bool Autenticar(string senha)
-        {
-            return Senha == senha;
         }
     }
 }
