@@ -15,7 +15,7 @@ namespace ByteBank
             {
                 return _agencia;
             }
-            set
+            private set
             {
                 if (value <= 0)
                 {
@@ -25,7 +25,7 @@ namespace ByteBank
                 _agencia = value;
             }
         }
-        public int Numero { get; set; }        
+        public int Numero { get; private set; }        
 
         private double _saldo = 100.0;
 
