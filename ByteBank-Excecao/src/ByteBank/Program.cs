@@ -12,8 +12,17 @@ namespace ByteBank
         {
             //ContaCorrente conta = new ContaCorrente(7480, 874150);
             //Console.WriteLine("Taxa Operação: " + ContaCorrente.TaxaOperacao);
-            
-            Metodo();
+
+            try
+            {
+                Metodo();
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
             Console.ReadLine();
         }
 
@@ -33,10 +42,6 @@ namespace ByteBank
                 Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
             }
             catch(DivideByZeroException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch(NullReferenceException ex)
             {
                 Console.WriteLine(ex.Message);
             }
