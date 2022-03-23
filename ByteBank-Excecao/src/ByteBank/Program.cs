@@ -52,9 +52,15 @@ namespace ByteBank
 
         private static int Dividir(int numero, int divisor)
         {
-            ContaCorrente contaCorrente = null;
-            //Console.WriteLine(contaCorrente.Saldo);
-            return numero / divisor;
+            try
+            {                
+                return numero / divisor;
+            }
+            catch (DivideByZeroException)
+            {                
+                Console.WriteLine("Exceção com numero igual a " + numero + " e divosor igual a " + divisor);
+                throw; // Passa a exceção para frente.
+            }
         }
     }
 }
