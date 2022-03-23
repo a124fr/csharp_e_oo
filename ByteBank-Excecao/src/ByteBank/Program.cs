@@ -17,12 +17,7 @@ namespace ByteBank
             {
                 Metodo();
             }
-            catch (NullReferenceException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            catch (DivideByZeroException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
@@ -48,7 +43,7 @@ namespace ByteBank
         private static int Dividir(int numero, int divisor)
         {
             ContaCorrente contaCorrente = null;
-            //Console.WriteLine(contaCorrente.Saldo);
+            Console.WriteLine(contaCorrente.Saldo);
             return numero / divisor;
         }
     }
