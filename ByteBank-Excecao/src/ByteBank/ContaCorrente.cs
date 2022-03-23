@@ -9,7 +9,7 @@ namespace ByteBank
         public Cliente Titular { get; set; }
 
         public int Agencia { get; }
-                
+
         public int Numero { get; }
 
         private double _saldo = 100.0;
@@ -19,8 +19,8 @@ namespace ByteBank
             get
             {
                 return _saldo;
-            }   
-            
+            }
+
             set
             {
                 if (value < 0)
@@ -51,20 +51,24 @@ namespace ByteBank
             Agencia = numeroAgencia;
             Numero = numeroConta;
 
-            TaxaOperacao = 30 / TaxaOperacao;
-
             TotalDeContasCriadas++;
+
+            TaxaOperacao = 30 / TotalDeContasCriadas;
         }
 
-        public bool Sacar(double valor)
+        public void Sacar(double valor)
         {
-            if (_saldo < valor || _saldo <= 0)
+            if (_saldo <= 0)
             {
-                return false;
+                throw new ArgumentException("O paremetro valor deve ser positivo", nameof(valor));
+            }
+
+            if (_saldo < valor)
+            {
+                throw new SaldoInsuficienteException("Saldo insuficiente para o saque no valor de R$" + valor);
             }
 
             _saldo -= valor;
-            return true;
         }
 
         public void Depositar(double valor)
@@ -75,15 +79,10 @@ namespace ByteBank
             }
         }
 
-        public bool Trasnferir(double valor, ContaCorrente contaDestino)
+        public void Trasnferir(double valor, ContaCorrente contaDestino)
         {
-            if (Sacar(valor))
-            {
-                contaDestino.Depositar(valor);
-                return true;
-            }
-
-            return false;
+            Sacar(valor);
+            contaDestino.Depositar(valor);
         }
     }
 }
