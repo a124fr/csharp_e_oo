@@ -13,18 +13,19 @@ namespace ByteBank
                 
                 ContaCorrente conta2 = new ContaCorrente(83930, 494949);
                 conta2.Depositar(50);
-                
-                conta2.Trasnferir(100500, conta);
+
+                //conta2.Trasnferir(100500, conta);
+                conta2.Sacar(100000);
             }
             catch(OperacaoFinanceiraException e)
             {   
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
                 Console.WriteLine();
-
-                Console.WriteLine("Informações da INNER EXCEPTION (exceção interna):");
+                                
                 if (e.InnerException != null)
                 {
+                    Console.WriteLine("Informações da INNER EXCEPTION (exceção interna):");
                     Console.WriteLine(e.InnerException.Message);
                     Console.WriteLine(e.InnerException.StackTrace);
                 }
