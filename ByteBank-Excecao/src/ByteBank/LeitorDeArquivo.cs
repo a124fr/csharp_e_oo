@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ByteBank
 {
-    public class LeitorDeArquivo
+    public class LeitorDeArquivo : IDisposable
     {
         public string Arquivo { get; }
 
@@ -11,20 +11,20 @@ namespace ByteBank
         {
             Arquivo = arquivo;
 
-            throw new FileNotFoundException("Arquivo não encontrado!");
+            //throw new FileNotFoundException("Arquivo não encontrado!");
 
-            //Console.WriteLine("Abrindo arquivo: " + arquivo);
+            Console.WriteLine("Abrindo arquivo: " + arquivo);
         }
 
         public string LerProximaLinha()
         {
             Console.WriteLine("Lendo linha...");
 
-            //throw new IOException("Erro ao ler o arquivo!");
-            return "Linha do arquivo";
+            throw new IOException("Erro ao ler o arquivo!");
+            //return "Linha do arquivo";
         }
 
-        public void Fechar()
+        public void Dispose()
         {
             Console.WriteLine("Fechando arquivo.");
         }

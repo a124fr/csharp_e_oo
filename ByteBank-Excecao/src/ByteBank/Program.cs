@@ -7,9 +7,24 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            CarrregarContas();
+            try
+            {
+                CarrregarContas2();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("CATCH NO METODO MAIN");
+            }
 
             Console.ReadLine();
+        }
+
+        private static void CarrregarContas2()
+        {
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
         }
 
         private static void CarrregarContas()
@@ -23,17 +38,14 @@ namespace ByteBank
                 leitor.LerProximaLinha();
                 leitor.LerProximaLinha();
             }
-            catch (IOException e)
-            {
-                Console.Write(e.Message + " -> ");
-                Console.WriteLine("Exceção do tipo IOException capturada e  tratada!");
-            }
             finally
             {
+                Console.WriteLine("EXECUTANDO O FINALLY");
+
                 if (leitor != null)
                 {
-                    leitor.Fechar();
-                }                    
+                    //leitor.Fechar();
+                }
             }
         }
 
