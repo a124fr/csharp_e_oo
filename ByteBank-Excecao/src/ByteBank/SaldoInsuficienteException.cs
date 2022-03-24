@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByteBank
 {
-    public class SaldoInsuficienteException : ApplicationException
+    public class SaldoInsuficienteException : OperacaoFinanceiraException
     {
         public  double Saldo { get; }
         public double ValorSaque { get; }
@@ -25,5 +21,9 @@ namespace ByteBank
             Saldo = saldo;
             ValorSaque = valorSaque;
         }
+
+        public SaldoInsuficienteException(string mensagem, Exception e)
+            : base(mensagem, e)
+        { }
     }
 }
