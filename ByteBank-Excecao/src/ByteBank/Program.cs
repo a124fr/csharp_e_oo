@@ -10,14 +10,20 @@ namespace ByteBank
             {
                 ContaCorrente conta = new ContaCorrente(83930, 788545);
                 conta.Depositar(50);
-                Console.WriteLine(conta.Saldo);
-                conta.Sacar(-500);
-                Console.WriteLine(conta.Saldo);
+                //Console.WriteLine(conta.Saldo);
+                //conta.Sacar(-500);
+                //Console.WriteLine(conta.Saldo);
+
+                ContaCorrente conta2 = new ContaCorrente(83930, 494949);
+                conta2.Depositar(50);
+                //conta2.Trasnferir(-500, conta);
+                conta2.Trasnferir(100500, conta);
             }
             catch(SaldoInsuficienteException e)
             {
                 Console.WriteLine("Exceção do tipo SaldoInsuficienteException");
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
             }
             catch(ArgumentException e)
             {
